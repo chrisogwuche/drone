@@ -14,6 +14,5 @@ public interface DroneRepository extends JpaRepository<Drone,Long> {
     @Query(value = "select d from Drone d left join d.medicationItemsList where d.state = ?1 or d.state = ?2 and d.batteryLevel >= ?3")
     Optional<List<Drone>> findAvailableDrones(State state1, State state2, Integer batteryLevel);
 
-    //List<Drone> findAllByStateOrStateAndBatteryLevelGreaterThanEqual(State state1,State state2, Integer batterLevel);
     List<Drone> findByState(State state);
 }
